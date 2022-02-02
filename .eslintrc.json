@@ -1,0 +1,47 @@
+{
+    "env": {
+        "browser": true
+    },
+    "plugins": ["react", "prettier"],
+    "extends": ["airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "react/prop-types": 0,
+        "func-style": [
+            0,
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "func-names": ["error", "as-needed"],
+        "arrow-body-style": ["error", "always"],
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "endOfLine": "auto",
+                "tabWidth": 4
+            }
+        ],
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".jsx"]
+            }
+        ]
+    }
+}
