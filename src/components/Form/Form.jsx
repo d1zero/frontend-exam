@@ -36,12 +36,22 @@ const Form = ({ setAdverts, setAdvertsLoading }) => {
 
     const [openForm, setOpenForm] = useState(false);
 
+    const [successValidate, setSuccessValidate] = useState(false);
+
     useEffect(() => {
         instance.get('/api/brom/sales/form').then((res) => {
             setData(res.data);
             setLoading(false);
         });
     }, []);
+
+    const validate = () => {
+        if (address !== '' && phone !== '' && price !== '' && city !== '') {
+            setSuccessValidate(true);
+        } else {
+            setSuccessValidate(false);
+        }
+    };
 
     const submit = () => {
         const formData = new FormData();
@@ -240,13 +250,20 @@ const Form = ({ setAdverts, setAdvertsLoading }) => {
                             />
                         </div>
                     )}
-                    <Button
-                        variant="contained"
-                        style={{ marginTop: '10px' }}
-                        onClick={submit}
-                    >
-                        Добавить
-                    </Button>
+
+                    <Box style={{ marginTop: '10px' }}>
+                        <Button variant="contained" onClick={validate}>
+                            Валидация
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={submit}
+                            disabled={!successValidate}
+                            style={{ marginLeft: 5 }}
+                        >
+                            Добавить
+                        </Button>
+                    </Box>
                 </Box>
             </Collapse>
         </div>
