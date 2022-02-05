@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: '',
+    baseURL: 'https://demo-api.vsdev.space',
     headers: { 'Content-Type': 'application/json' },
 });
 
