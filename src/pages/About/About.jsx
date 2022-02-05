@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
+import { Typography } from '@mui/material';
 import Loader from '../../components/Loader/Loader';
 import instance from '../../API';
 
@@ -19,7 +20,13 @@ const AboutPage = () => {
         return <Loader />;
     }
 
-    return <div dangerouslySetInnerHTML={{ __html: info.text }} />;
+    return (
+        <Typography
+            component="div"
+            variant="body1"
+            dangerouslySetInnerHTML={{ __html: info.text }}
+        />
+    );
 };
 
 export default AboutPage;

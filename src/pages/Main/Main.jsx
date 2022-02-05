@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
+import { Typography } from '@mui/material';
 import Loader from '../../components/Loader/Loader';
 import instance from '../../API';
 
@@ -22,8 +23,12 @@ const MainPage = () => {
 
     return (
         <div>
-            <div dangerouslySetInnerHTML={{ __html: info.text }} />
-            <img src={info.image} alt="Картинка" />
+            <Typography
+                component="div"
+                variant="body1"
+                dangerouslySetInnerHTML={{ __html: info.text }}
+            />
+            <img src={info.image} alt="Картинка" height={500} />
         </div>
     );
 };

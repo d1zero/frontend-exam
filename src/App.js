@@ -14,8 +14,8 @@ const App = () => {
     return (
         <AppDiv>
             <Header />
-            <Container>
-                <Grid container>
+            <Container style={{ marginTop: 10, marginBottom: 10 }}>
+                <Grid container spacing={2}>
                     <Grid item xs={3}>
                         <Navbar />
                         <LeftWidget />

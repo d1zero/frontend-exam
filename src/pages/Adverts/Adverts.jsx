@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import Loader from '../../components/Loader/Loader';
-import instance from '../../API';
+import { getAdverts } from '../../fetchData';
 import CarCard from '../../components/CarCard/CarCard';
 import ApartCard from '../../components/ApartCard/ApartCard';
 import Form from '../../components/Form/Form';
@@ -10,11 +10,9 @@ import Form from '../../components/Form/Form';
 const AdvertsPage = () => {
     const [adverts, setAdverts] = useState();
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        instance.get('/api/brom/sales').then((res) => {
-            setAdverts(res.data);
-            setLoading(false);
-        });
+        getAdverts(setAdverts, setLoading);
     }, []);
 
     if (loading) {
@@ -23,8 +21,12 @@ const AdvertsPage = () => {
 
     return (
         <div>
-            <Form />
-            <Grid container spacing={2}>
+            <Form
+                setAdvertsLoading={setLoading}
+                setAdverts={setAdverts}
+                advertsLoading={loading}
+            />
+            <Grid container spacing={2} style={{ marginTop: 10 }}>
                 {adverts.map((advert) => {
                     return advert.type === 'car' ? (
                         <Grid item xs={4} key={advert.id}>

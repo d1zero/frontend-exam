@@ -5,7 +5,6 @@ export const CustomLink = styled(Link)`
     color: #1976d2 !important;
     padding-right: 20px;
     text-decoration: none !important;
-    margin-left: 10px;
     &:hover: {
         color: '#1976d2';
         text-decoration: none;
