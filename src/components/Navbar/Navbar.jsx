@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import CustomLink from '../../globalStyles';
+import { CustomLink } from '../../globalStyles';
 
 const Navbar = () => {
     return (

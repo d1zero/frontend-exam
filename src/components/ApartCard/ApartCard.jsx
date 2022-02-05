@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import {
     Card,
@@ -9,9 +8,8 @@ import {
 } from '@mui/material';
 
 const ApartCard = ({ data }) => {
-    console.log(data);
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, minHeight: 410 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -20,13 +18,24 @@ const ApartCard = ({ data }) => {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                    <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        style={{ minHeight: '96px', maxHeight: '96px' }}
+                    >
+                        Квартира - {data.city}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
+                        {data.city}, {data.address}
+                        <br />
+                        Кол-во комнат: {data.rooms}
+                        <br />
+                        Общая площадь: {data.square}
+                        <br />
+                        Номер телефона: {data.phone}
+                        <br />
+                        Цена:{data.price}
                     </Typography>
                 </CardContent>
             </CardActionArea>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
-const CustomLink = styled(Link)`
+export const CustomLink = styled(Link)`
     color: #1976d2 !important;
     padding-right: 20px;
     text-decoration: none !important;
@@ -16,4 +16,8 @@ const CustomLink = styled(Link)`
     }
 `;
 
-export default CustomLink;
+export const GlobalStyle = createGlobalStyle`
+    html {
+        overflow-y: scroll;
+    }
+`;

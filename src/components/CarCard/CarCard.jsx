@@ -9,9 +9,8 @@ import {
 } from '@mui/material';
 
 const CarCard = ({ data }) => {
-    console.log(data);
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, minHeight: 410 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -20,7 +19,12 @@ const CarCard = ({ data }) => {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        style={{ minHeight: '96px', maxHeight: '96px' }}
+                    >
                         {data.model} - {data.car_type}, {data.city}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
